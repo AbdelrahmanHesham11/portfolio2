@@ -1,0 +1,140 @@
+.works {
+  min-height: 100vh;
+  padding: var(--section) var(--gap);
+  overflow: hidden;
+}
+
+.label {
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.mono {
+  font-family: var(--mono);
+  color: var(--accent);
+}
+
+.divider {
+  color: var(--accent);
+  opacity: 0.3;
+}
+
+.scrollContainer {
+  display: flex;
+  gap: 4rem;
+  will-change: transform;
+}
+
+.project {
+  min-width: 70vw;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.projectImage {
+  aspect-ratio: 16/10;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  transition: border-color 0.3s ease;
+}
+
+.project:hover .projectImage {
+  border-width: 2px;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.imageLabel {
+  font-family: var(--clash);
+  font-size: 2rem;
+  font-weight: 600;
+  opacity: 0.15;
+  letter-spacing: -0.02em;
+  transition: opacity 0.3s ease;
+}
+
+.project:hover .imageLabel {
+  opacity: 0.25;
+}
+
+.projectMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.projectTitle {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.projectYear {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  opacity: 0.5;
+}
+
+.projectDesc {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 600px;
+  opacity: 0.8;
+}
+
+.technical {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--ink);
+}
+
+.techItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.techLabel {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.techValue {
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 768px) {
+  .project {
+    min-width: 85vw;
+  }
+  
+  .imageLabel {
+    font-size: 2rem;
+  }
+}

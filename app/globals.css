@@ -1,26 +1,153 @@
-@import "tailwindcss";
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&f[]=jetbrains-mono@400,500&display=swap');
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #0A0A0A;
+  --paper: #FAFAF8;
+  --accent: #0A7E8C;
+  --accent-muted: #0A7E8C22;
+  
+  --clash: 'Clash Display', sans-serif;
+  --satoshi: 'Satoshi', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  
+  --gap: clamp(1rem, 3vw, 2rem);
+  --section: clamp(4rem, 15vh, 12rem);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme="dark"] {
+  --ink: #FAFAF8;
+  --paper: #0A0A0A;
+  --accent: #0A7E8C;
+  --accent-muted: #0A7E8C22;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--satoshi);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+/* Typography Scale */
+h1, h2, h3 {
+  font-family: var(--clash);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(3rem, 10vw, 8rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 4.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+code, pre {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+
+/* Motion Utilities */
+.motion-safe {
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Custom Cursor */
+.cursor-custom {
+  cursor: none;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.15s ease;
+}
+
+.cursor-outline {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Layout Grid */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gap);
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+/* Utility Classes */
+.section-spacing {
+  padding: var(--section) 0;
+}
+
+.border-ink {
+  border: 1px solid var(--ink);
+}
+
+.border-accent {
+  border: 1px solid var(--accent);
+}
+
+/* Interactive States */
+a, button {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover, button:hover {
+  transform: translateY(-2px);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left;
+  z-index: 1000;
 }

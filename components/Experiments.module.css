@@ -1,0 +1,152 @@
+.experiments {
+  min-height: 100vh;
+  padding: var(--section) var(--gap);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.mono {
+  font-family: var(--mono);
+  color: var(--accent);
+}
+
+.divider {
+  color: var(--accent);
+  opacity: 0.3;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  opacity: 0.6;
+  max-width: 600px;
+}
+
+.canvasContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.canvas {
+  width: 100%;
+  aspect-ratio: 16/9;
+  cursor: none;
+  background: linear-gradient(135deg, var(--paper) 0%, rgba(10, 126, 140, 0.03) 100%);
+  border: 1px solid rgba(10, 10, 10, 0.1);
+}
+
+[data-theme="dark"] .canvas {
+  background: linear-gradient(135deg, var(--paper) 0%, rgba(10, 126, 140, 0.05) 100%);
+  border-color: rgba(250, 250, 248, 0.1);
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: var(--paper);
+  border: 1px solid rgba(10, 10, 10, 0.1);
+}
+
+[data-theme="dark"] .stats {
+  background: rgba(10, 10, 10, 0.5);
+  border-color: rgba(250, 250, 248, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.statLabel {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.statValue {
+  font-family: var(--mono);
+  font-size: 1.125rem;
+  color: var(--accent);
+}
+
+.notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--accent-muted);
+  border-left: 2px solid var(--accent);
+}
+
+.note {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  display: flex;
+  gap: 1rem;
+}
+
+.noteLabel {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  min-width: 80px;
+}
+
+@media (max-width: 768px) {
+  .canvasContainer {
+    aspect-ratio: 4/3;
+  }
+  
+  .stats {
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .notes {
+    padding: 1rem;
+  }
+  
+  .note {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
