@@ -6,49 +6,44 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Works.module.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const projects = [
-{
-  title: 'Finsight AI',
-  year: '2025',
-  stack: 'Next.js, OpenRouter AI, Prisma, Clerk',
-  description:
-    'AI-powered personal finance assistant designed to help users track spending, optimize budgets, and receive intelligent savings recommendations based on historical behavior.',
-  challenge:
-    'Balancing response quality while minimizing token usage across frequent, data-driven AI interactions.',
-  solution:
-    'Implemented contextual prompt compression, request batching, and caching strategies to reduce token consumption without sacrificing recommendation accuracy.',
-  color: '#2c336b',
-  image: '/project1.png'
-},
-{
-  title: 'YourAIFriend',
-  year: '2025',
-  stack: 'Next.js, VAPI, Prisma, Clerk',
-  description:
-    'Conversational AI platform that enables users to speak with a humanoid assistant in a private, secure environment for emotional expression, reflection, and guided support.',
-  challenge:
-    'Designing natural, human-like conversational flow while maintaining safety, latency, and user trust in real-time voice interactions.',
-  solution:
-    'Fine-tuned conversational pacing, response timing, and voice parameters while introducing adaptive context windows to maintain natural dialogue continuity.',
-  color: '#f1dbd9',
-  image: '/project2.png'
-},
   {
-    title: 'Elaf tendering website',
+    title: 'Finsight AI',
+    year: '2025',
+    link: 'https://finsight-ai-rho.vercel.app/',
+    stack: 'Next.js, OpenRouter AI, Prisma, Clerk',
+    description: 'AI-powered personal finance assistant designed to help users track spending, optimize budgets, and receive intelligent savings recommendations based on historical behavior.',
+    challenge: 'Balancing response quality while minimizing token usage across frequent, data-driven AI interactions.',
+    solution: 'Implemented contextual prompt compression, request batching, and caching strategies to reduce costs without sacrificing accuracy.',
+    color: '#2c336b',
+    image: '/project1.png'
+  },
+  {
+    title: 'YourAIFriend',
+    year: '2025',
+    link: 'https://your-ai-friend-two.vercel.app/',
+    stack: 'Next.js, VAPI, Prisma, Clerk',
+    description: 'Conversational AI platform that enables users to speak with a humanoid assistant in a private, secure environment for emotional expression, reflection, and guided support.',
+    challenge: 'Designing natural, human-like conversational flow while maintaining low latency in real-time voice interactions.',
+    solution: 'Fine-tuned conversational pacing and response timing while introducing adaptive context windows to maintain dialogue continuity.',
+    color: '#f1dbd9',
+    image: '/project2.png'
+  },
+  {
+    title: 'Elaf Tendering',
     year: '2024',
+    link: 'https://www.elaaaf.com/',
     stack: 'NextJS, FastAPI, PostgreSQL, Supabase',
-  description:
-    'B2B/B2G tendering platform built for the Omani market, enabling organizations to publish, discover, and manage government and enterprise tenders through a secure, high-availability web interface.',
-  challenge:
-    'Maintaining fast load times and reliable performance during peak traffic periods with large volumes of concurrent users and data-heavy queries.',
-  solution:
-    'Optimized database queries and indexing strategies, introduced API-level caching, and incrementally scaled platform features while preserving performance under high load.',
-  color: '#95E1D3',
+    description: 'B2B/B2G tendering platform built for the Omani market, enabling organizations to publish, discover, and manage government and enterprise tenders through a secure, high-availability web interface.',
+    challenge: 'Maintaining fast load times during peak traffic periods with large volumes of concurrent users and data-heavy queries.',
+    solution: 'Optimized database indexing, introduced API-level caching, and implemented incremental scaling for high-load performance.',
+    color: '#95E1D3',
     image: '/project3.png'
   }
 ];
@@ -60,26 +55,26 @@ export default function Works() {
   useEffect(() => {
     if (!containerRef.current || !scrollRef.current) return;
 
-    const container = containerRef.current;
     const scroll = scrollRef.current;
-    const scrollWidth = scroll.scrollWidth;
-
-    gsap.to(scroll, {
-      x: -(scrollWidth - window.innerWidth),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: container,
-        start: 'top top',
-        end: () => `+=${scrollWidth}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-      }
+    
+    // Horizontal scroll logic
+    const ctx = gsap.context(() => {
+      gsap.to(scroll, {
+        x: () => -(scroll.scrollWidth - window.innerWidth),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: () => `+=${scroll.scrollWidth}`,
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true, // Recalculates on window resize
+        }
+      });
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    return () => ctx.revert(); // Clean up GSAP
   }, []);
 
   return (
@@ -95,25 +90,35 @@ export default function Works() {
           <motion.article 
             key={i} 
             className={styles.project}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: i * 0.2 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-          <div className={styles.projectImage} style={{ borderColor: project.color }}>
-            <Image
-              src={project.image}
-              alt={`${project.title} screenshot`}
-              fill
-              className={styles.projectImg}
-              sizes="(max-width: 768px) 90vw, 60vw"
-              priority={i === 0}
-            />
-          </div>
+            {/* Clickable Image Section */}
+            <Link href={project.link} target="_blank" className={styles.imageLink}>
+              <div className={styles.projectImage} style={{ borderColor: project.color }}>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className={styles.projectImg}
+                  sizes="(max-width: 768px) 90vw, 50vw"
+                  priority={i === 0}
+                />
+                <div className={styles.imageOverlay}>
+                  <span>VIEW PROJECT ↗</span>
+                </div>
+              </div>
+            </Link>
 
             <div className={styles.projectMeta}>
               <div className={styles.projectHeader}>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
+                <Link href={project.link} target="_blank" className={styles.titleLink}>
+                  <h3 className={styles.projectTitle}>
+                    {project.title} <span className={styles.arrow}>↗</span>
+                  </h3>
+                </Link>
                 <span className={styles.projectYear}>{project.year}</span>
               </div>
 

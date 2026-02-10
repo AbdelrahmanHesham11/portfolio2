@@ -70,7 +70,7 @@ export default function Colophon() {
 
         <div className={styles.footer}>
           <p className={styles.footerText}>
-            Designed & developed with precision
+            Designed & developed with precision and creativity by <span className={styles.mono}>Abdelrahman Hesham</span>.
           </p>
           <p className={styles.footerText}>
             <span className={styles.mono}>2026</span>

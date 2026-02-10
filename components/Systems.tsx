@@ -160,7 +160,7 @@ export default function Systems() {
           <div className={styles.label}>
             <span className={styles.mono}>004</span>
             <span className={styles.divider}>/</span>
-            <span>CAPABILITIES</span>
+            <span>EXPERIENCES</span>
           </div>
 
           <h2 className={styles.title}>Professional scope</h2>
