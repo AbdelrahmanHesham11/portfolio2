@@ -1,0 +1,18 @@
+/* Loader.module.css */
+
+.loaderOverlay {
+  position: fixed;
+  inset: 0;
+  background: var(--paper);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  
+}
+
+.loaderText {
+  font-family: var(--mono);
+  font-size: 3rem;
+  color: #0A0A0A;
+}
