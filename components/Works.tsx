@@ -5,38 +5,51 @@ import { motion } from 'motion/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Works.module.css';
+import Image from 'next/image';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 const projects = [
+{
+  title: 'Finsight AI',
+  year: '2025',
+  stack: 'Next.js, OpenRouter AI, Prisma, Clerk',
+  description:
+    'AI-powered personal finance assistant designed to help users track spending, optimize budgets, and receive intelligent savings recommendations based on historical behavior.',
+  challenge:
+    'Balancing response quality while minimizing token usage across frequent, data-driven AI interactions.',
+  solution:
+    'Implemented contextual prompt compression, request batching, and caching strategies to reduce token consumption without sacrificing recommendation accuracy.',
+  color: '#2c336b',
+  image: '/project1.png'
+},
+{
+  title: 'YourAIFriend',
+  year: '2025',
+  stack: 'Next.js, VAPI, Prisma, Clerk',
+  description:
+    'Conversational AI platform that enables users to speak with a humanoid assistant in a private, secure environment for emotional expression, reflection, and guided support.',
+  challenge:
+    'Designing natural, human-like conversational flow while maintaining safety, latency, and user trust in real-time voice interactions.',
+  solution:
+    'Fine-tuned conversational pacing, response timing, and voice parameters while introducing adaptive context windows to maintain natural dialogue continuity.',
+  color: '#f1dbd9',
+  image: '/project2.png'
+},
   {
-    title: 'Neural Canvas',
+    title: 'Elaf tendering website',
     year: '2024',
-    stack: 'Next.js, Three.js, GLSL',
-    description: 'Real-time generative art platform enabling artists to create GPU-accelerated visual experiences through intuitive shader programming.',
-    challenge: 'Achieving 60fps rendering on mobile devices while maintaining visual fidelity',
-    solution: 'Implemented adaptive quality scaling and shader optimization techniques',
-    color: '#FF6B6B'
-  },
-  {
-    title: 'Motion Grammar',
-    year: '2024',
-    stack: 'React, Motion, GSAP',
-    description: 'Component library and design system built around physics-based animation primitives, enabling consistent motion language across products.',
-    challenge: 'Maintaining performance with complex spring physics at scale',
-    solution: 'Custom animation scheduler with batched updates and GPU acceleration',
-    color: '#4ECDC4'
-  },
-  {
-    title: 'Temporal Grid',
-    year: '2023',
-    stack: 'WebGL, Canvas API, TypeScript',
-    description: 'Interactive data visualization platform treating time as a navigable dimension, revealing patterns in high-frequency temporal data.',
-    challenge: 'Smoothly rendering 10k+ dynamic data points',
-    solution: 'WebGL instancing with spatial indexing for viewport culling',
-    color: '#95E1D3'
+    stack: 'NextJS, FastAPI, PostgreSQL, Supabase',
+  description:
+    'B2B/B2G tendering platform built for the Omani market, enabling organizations to publish, discover, and manage government and enterprise tenders through a secure, high-availability web interface.',
+  challenge:
+    'Maintaining fast load times and reliable performance during peak traffic periods with large volumes of concurrent users and data-heavy queries.',
+  solution:
+    'Optimized database queries and indexing strategies, introduced API-level caching, and incrementally scaled platform features while preserving performance under high load.',
+  color: '#95E1D3',
+    image: '/project3.png'
   }
 ];
 
@@ -87,15 +100,16 @@ export default function Works() {
             transition={{ duration: 0.8, delay: i * 0.2 }}
             viewport={{ once: true }}
           >
-            <div className={styles.projectImage} style={{ borderColor: project.color }}>
-              <div className={styles.imagePlaceholder} style={{ 
-                background: `linear-gradient(135deg, ${project.color}15 0%, ${project.color}05 100%)` 
-              }}>
-                <span className={styles.imageLabel} style={{ color: project.color }}>
-                  {project.title}
-                </span>
-              </div>
-            </div>
+          <div className={styles.projectImage} style={{ borderColor: project.color }}>
+            <Image
+              src={project.image}
+              alt={`${project.title} screenshot`}
+              fill
+              className={styles.projectImg}
+              sizes="(max-width: 768px) 90vw, 60vw"
+              priority={i === 0}
+            />
+          </div>
 
             <div className={styles.projectMeta}>
               <div className={styles.projectHeader}>

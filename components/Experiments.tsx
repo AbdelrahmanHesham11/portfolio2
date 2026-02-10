@@ -129,8 +129,7 @@ export default function Experiments() {
 
           <h2 className={styles.title}>Curiosity in motion</h2>
           <p className={styles.description}>
-            Not every idea needs to be polished.<br />
-            Some exist to prove a principle, test a constraint, or simply play.
+            Experimented with interactive typography and real-time physics to test responsiveness, cursor-based animation, and performance under high frame-rate conditions.
           </p>
         </div>
 

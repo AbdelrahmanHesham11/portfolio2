@@ -5,7 +5,7 @@ import styles from './Colophon.module.css';
 
 export default function Colophon() {
   const techStack = [
-    'Next.js 15',
+    'Next.js 16',
     'TypeScript',
     'Motion.dev',
     'GSAP',
@@ -26,12 +26,12 @@ export default function Colophon() {
             <h2 className={styles.title}>Let's build something exceptional</h2>
 
             <motion.a 
-              href="mailto:hello@example.com"
+              href="mailto:abdelrahman.heshamfathala@gmail.com"
               className={styles.email}
               whileHover={{ x: 10 }}
               transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             >
-              hello@example.com
+              abdelrahman.heshamfathala@gmail.com
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                 <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" strokeWidth="1.5"/>
               </svg>
@@ -73,7 +73,7 @@ export default function Colophon() {
             Designed & developed with precision
           </p>
           <p className={styles.footerText}>
-            <span className={styles.mono}>2024</span>
+            <span className={styles.mono}>2026</span>
           </p>
         </div>
       </div>

@@ -20,6 +20,47 @@
   gap: 1.5rem;
 }
 
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.presets {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.preset {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: 1px solid rgba(10, 10, 10, 0.15);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+[data-theme="dark"] .preset {
+  border-color: rgba(250, 250, 248, 0.15);
+}
+
+.preset:hover {
+  opacity: 0.8;
+  border-color: var(--accent);
+}
+
+.presetActive {
+  opacity: 1;
+  background: var(--accent);
+  color: var(--paper);
+  border-color: var(--accent);
+}
 .label {
   font-size: 0.875rem;
   letter-spacing: 0.15em;

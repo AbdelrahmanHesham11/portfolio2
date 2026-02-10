@@ -6,24 +6,40 @@ import styles from './Systems.module.css';
 
 const capabilities = [
   {
-    role: 'External Consultant',
-    scope: 'Architecture · Strategy · Implementation',
-    focus: ['System design', 'Technical assessment', 'Team enablement']
-  },
-  {
     role: 'Full-Stack Engineer',
-    scope: 'Frontend · Backend · Infrastructure',
-    focus: ['End-to-end ownership', 'Production systems', 'Performance optimization']
+    scope: 'Production Systems · Remote Teams',
+    focus: [
+      'Architected and shipped apps used by 1,000+ users',
+      'End-to-end ownership across frontend, backend, and infra',
+      'Secure APIs, encrypted data, privacy-first design'
+    ]
   },
   {
-    role: 'Data Engineer',
-    scope: 'Pipelines · Analysis · Visualization',
-    focus: ['ETL architecture', 'Data modeling', 'Analytics infrastructure']
+    role: 'Independent Consultant',
+    scope: 'SaaS · Platforms · Performance',
+    focus: [
+      'Delivered 10+ full-stack products for global clients',
+      'Improved API response times by 60%',
+      'Reduced infrastructure costs by 50% via caching and CDN'
+    ]
   },
   {
-    role: 'Instructor',
-    scope: 'Technical Education · Mentorship',
-    focus: ['Curriculum design', 'Knowledge transfer', 'Team development']
+    role: 'AI & Data Engineer',
+    scope: 'Pipelines · Automation · Analytics',
+    focus: [
+      'Designed ETL pipelines processing 2,000+ records/day',
+      'Automated data collection and reporting workflows',
+      'Integrated AI tools to accelerate engineering cycles'
+    ]
+  },
+  {
+    role: 'Instructor & Mentor',
+    scope: 'Technical Education · Remote Learning',
+    focus: [
+      'Taught Python and web fundamentals to 48 students',
+      '97% course completion rate across cohorts',
+      '4.9/5 instructor satisfaction via async mentorship'
+    ]
   }
 ];
 
