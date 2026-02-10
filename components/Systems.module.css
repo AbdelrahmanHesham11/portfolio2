@@ -139,3 +139,45 @@
     aspect-ratio: 16/9;
   }
 }
+
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .canvas {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 768px) {
+  .systems {
+    padding: clamp(2rem, 8vh, 4rem) 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .capability {
+    padding: 1.5rem;
+  }
+
+  .role {
+    font-size: 1.125rem;
+  }
+
+  .scope {
+    font-size: 0.7rem;
+  }
+
+  .focusItem {
+    font-size: 0.8rem;
+  }
+
+  .canvas {
+    aspect-ratio: 4/3;
+  }
+}

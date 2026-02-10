@@ -150,3 +150,46 @@
     gap: 0.25rem;
   }
 }
+
+
+@media (max-width: 768px) {
+  .experiments {
+    padding: clamp(2rem, 8vh, 4rem) 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
+  }
+
+  .canvas {
+    aspect-ratio: 4/3;
+  }
+
+  .stats {
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    min-width: calc(50% - 0.5rem);
+  }
+
+  .notes {
+    padding: 1rem;
+  }
+
+  .note {
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+  }
+
+  .noteLabel {
+    font-size: 0.7rem;
+  }
+}

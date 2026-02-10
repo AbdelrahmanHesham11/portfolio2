@@ -85,3 +85,19 @@
     padding: 1rem var(--gap);
   }
 }
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 1rem var(--gap);
+  }
+
+  .list {
+    gap: 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .link {
+    font-size: 0.7rem;
+    padding: 0.25rem 0;
+  }
+}

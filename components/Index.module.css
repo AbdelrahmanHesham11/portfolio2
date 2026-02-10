@@ -87,3 +87,25 @@
     bottom: 2rem;
   }
 }
+
+@media (max-width: 768px) {
+  .index {
+    padding: 1rem;
+  }
+
+  .name {
+    font-size: clamp(2rem, 12vw, 4rem);
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+  }
+
+  .scroll {
+    bottom: 2rem;
+  }
+}

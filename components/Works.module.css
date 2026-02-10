@@ -194,3 +194,56 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+@media (max-width: 768px) {
+  .works {
+    padding: clamp(2rem, 8vh, 4rem) 1rem;
+  }
+
+  .label {
+    margin-bottom: 1.5rem;
+  }
+
+  .scrollContainer {
+    gap: 2rem;
+  }
+
+  .project {
+    min-width: 85vw;
+    gap: 1rem;
+  }
+
+  .projectImage {
+    aspect-ratio: 4/3;
+  }
+
+  .projectTitle {
+    font-size: 1.25rem;
+  }
+
+  .projectDesc {
+    font-size: 0.875rem;
+  }
+
+  .technical {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .techLabel {
+    font-size: 0.65rem;
+  }
+
+  .techValue {
+    font-size: 0.8rem;
+  }
+
+  .imageLink {
+    display: block;
+  }
+
+  .imageOverlay {
+    opacity: 0.95;
+  }
+}
