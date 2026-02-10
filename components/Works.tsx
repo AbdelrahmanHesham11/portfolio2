@@ -55,26 +55,30 @@ export default function Works() {
   useEffect(() => {
     if (!containerRef.current || !scrollRef.current) return;
 
+    const container = containerRef.current;
     const scroll = scrollRef.current;
-    
-    // Horizontal scroll logic
+
     const ctx = gsap.context(() => {
+      const scrollWidth = scroll.scrollWidth;
+      const viewportWidth = window.innerWidth;
+      const extraSpace = viewportWidth * 0.2; // 20vw extra scroll space
+
       gsap.to(scroll, {
-        x: () => -(scroll.scrollWidth - window.innerWidth),
+        x: () => -(scrollWidth - viewportWidth + extraSpace),
         ease: 'none',
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: container,
           start: 'top top',
-          end: () => `+=${scroll.scrollWidth}`,
+          end: () => `+=${scrollWidth + extraSpace}`,
           scrub: 1,
           pin: true,
           anticipatePin: 1,
-          invalidateOnRefresh: true, // Recalculates on window resize
+          invalidateOnRefresh: true,
         }
       });
-    });
+    }, containerRef);
 
-    return () => ctx.revert(); // Clean up GSAP
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -95,7 +99,6 @@ export default function Works() {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            {/* Clickable Image Section */}
             <Link href={project.link} target="_blank" className={styles.imageLink}>
               <div className={styles.projectImage} style={{ borderColor: project.color }}>
                 <Image

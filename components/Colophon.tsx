@@ -18,7 +18,7 @@ export default function Colophon() {
         <div className={styles.grid}>
           <div className={styles.left}>
             <div className={styles.label}>
-              <span className={styles.mono}>006</span>
+              <span className={styles.mono}>007</span>
               <span className={styles.divider}>/</span>
               <span>COLOPHON</span>
             </div>

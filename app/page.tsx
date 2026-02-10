@@ -12,7 +12,7 @@ import Systems from '@/components/Systems';
 import Experiments from '@/components/Experiments';
 import Colophon from '@/components/Colophon';
 import Loader from '@/components/Loader';
-
+import FindMe from '@/components/FindMe';
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
@@ -38,6 +38,7 @@ export default function Home() {
           <Skills />
           <Systems />
           <Experiments />
+          <FindMe/>
           <Colophon />
         </main>
       )}
