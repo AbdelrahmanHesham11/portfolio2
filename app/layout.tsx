@@ -3,8 +3,8 @@ import "./globals.css";
 import DynamicTitle from "@/components/DynamicTtitle"; // Adjust path as needed
 
 export const metadata: Metadata = {
-  title: "Abdo's Portfolio",
-  description: "A portfolio as living documentation",
+  title: "Abdo's Portfolio| Software engineer",
+  description: "A portfolio website that speaks for me",
   icons: {
     icon: "/icon.png",
   },
