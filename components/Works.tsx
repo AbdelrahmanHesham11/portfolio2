@@ -47,7 +47,6 @@ const projects = [
     image: '/project3.png'
   }
 ];
-
 export default function Works() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -59,21 +58,25 @@ export default function Works() {
     const scroll = scrollRef.current;
 
     const ctx = gsap.context(() => {
-      const scrollWidth = scroll.scrollWidth;
-      const viewportWidth = window.innerWidth;
-      const extraSpace = viewportWidth * 0.2; // 20vw extra scroll space
+      // Logic for calculating horizontal scroll distance
+      const getScrollAmount = () => {
+        const scrollWidth = scroll.scrollWidth;
+        const viewportWidth = window.innerWidth;
+        // Scroll enough to see the last item fully, plus a little margin
+        return -(scrollWidth - viewportWidth + (viewportWidth * 0.05));
+      };
 
       gsap.to(scroll, {
-        x: () => -(scrollWidth - viewportWidth + extraSpace),
+        x: getScrollAmount,
         ease: 'none',
         scrollTrigger: {
           trigger: container,
           start: 'top top',
-          end: () => `+=${scrollWidth + extraSpace}`,
+          end: () => `+=${scroll.scrollWidth}`, // Scroll duration based on content width
           scrub: 1,
           pin: true,
           anticipatePin: 1,
-          invalidateOnRefresh: true,
+          invalidateOnRefresh: true, // Recalculate on resize
         }
       });
     }, containerRef);
@@ -99,7 +102,9 @@ export default function Works() {
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <Link href={project.link} target="_blank" className={styles.imageLink}>
+            {/* --- UPDATED LINK WRAPPER HERE --- */}
+            {/* This matches the new CSS class .projectLinkWrapper */}
+            <Link href={project.link} target="_blank" className={styles.projectLinkWrapper}>
               <div className={styles.projectImage} style={{ borderColor: project.color }}>
                 <Image
                   src={project.image}
@@ -114,6 +119,7 @@ export default function Works() {
                 </div>
               </div>
             </Link>
+            {/* ---------------------------------- */}
 
             <div className={styles.projectMeta}>
               <div className={styles.projectHeader}>
