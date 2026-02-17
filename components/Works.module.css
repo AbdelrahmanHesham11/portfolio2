@@ -3,7 +3,7 @@
 /* --- MAIN CONTAINER --- */
 .works {
   min-height: 100vh;
-  /* Use vh for top padding so it scales with screen height */
+ 
   padding: clamp(9rem, 12vh, 8rem) var(--gap);
   overflow: hidden;
   display: flex;
@@ -14,7 +14,7 @@
   font-size: 0.875rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  margin-bottom: 3vh; /* Relative margin */
+  margin-bottom: 3vh; 
   display: flex;
   gap: 0.75rem;
   align-items: center;
@@ -31,25 +31,22 @@
   opacity: 0.3;
 }
 
-/* --- SCROLL WRAPPER --- */
+
 .scrollContainer {
   display: flex;
   gap: clamp(2rem, 5vw, 4rem);
   height: 100%;
-  /* Centers the items vertically so they look balanced */
+
   align-items: center; 
   padding-right: 10vw;
   will-change: transform;
 }
 
-/* --- THE PROJECT CARD --- */
 .project {
-  /* Width: dynamic but capped */
+
   width: clamp(320px, 80vw, 750px);
   
-  /* Height: The Magic Fix. 
-     Never let the card be taller than 75% of the screen height.
-     This ensures it never gets cut off at the bottom. */
+
   height: 75vh; 
   max-height: 850px; 
   
@@ -60,11 +57,11 @@
   flex-shrink: 0;
 }
 
-/* --- IMAGE SECTION (The Flexible Part) --- */
+
 .projectLinkWrapper {
-  /* This wrapper takes up all available space, but shrinks if text needs room */
+
   flex: 1; 
-  min-height: 200px; /* Don't shrink smaller than this */
+  min-height: 200px; 
   display: flex;
   flex-direction: column;
   position: relative;
@@ -73,7 +70,7 @@
 
 .projectImage {
   width: 100%;
-  height: 100%; /* Fill the flexible wrapper */
+  height: 100%; 
   position: relative;
   overflow: hidden;
   border: 2px solid var(--ink);
@@ -85,7 +82,7 @@
   transition: transform 0.7s ease;
 }
 
-/* Hover Effects */
+
 .projectLinkWrapper:hover .projectImage {
   border-width: 2px;
 }
@@ -98,7 +95,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white; /* Adjust based on your theme */
+  color: white; 
   background: rgba(0,0,0,0.3);
   padding: 10px 20px;
   border-radius: 30px;
@@ -114,7 +111,7 @@
   opacity: 1;
 }
 
-/* --- TEXT CONTENT (The Rigid Part) --- */
+
 .projectMeta {
   display: flex;
   flex-direction: column;
