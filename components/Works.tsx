@@ -38,7 +38,7 @@ const projects = [
   {
     title: 'Elaf Tendering',
     year: '2024',
-    link: 'https://www.elaaaf.com/',
+    link: 'https://www.elaaaf.com/en',
     stack: 'NextJS, FastAPI, PostgreSQL, Supabase',
     description: 'B2B/B2G tendering platform built for the Omani market, enabling organizations to publish, discover, and manage government and enterprise tenders through a secure, high-availability web interface.',
     challenge: 'Maintaining fast load times during peak traffic periods with large volumes of concurrent users and data-heavy queries.',
