@@ -1,4 +1,4 @@
-# Kinetic Monograph
+# Kinetic Monograph Designed protfolio 
 > A portfolio that behaves like a living document.
 
 Structure dissolves into motion.  
