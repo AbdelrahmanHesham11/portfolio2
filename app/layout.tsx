@@ -3,7 +3,7 @@ import "./globals.css";
 import DynamicTitle from "@/components/DynamicTtitle"; 
 import {Analytics} from "@vercel/analytics/next";
 export const metadata: Metadata = {
-  title: "Abdo's Portfolio| Software engineer",
+  title: "Abdo's Portfolio | Software engineer",
   description: "A portfolio website that speaks for me",
   icons: {
     icon: "/icon.png",
