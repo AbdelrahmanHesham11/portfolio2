@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import DynamicTitle from "@/components/DynamicTtitle"; // Adjust path as needed
-
+import DynamicTitle from "@/components/DynamicTtitle"; 
+import {Analytics} from "@vercel/analytics/next";
 export const metadata: Metadata = {
   title: "Abdo's Portfolio| Software engineer",
   description: "A portfolio website that speaks for me",
@@ -21,6 +21,7 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <DynamicTitle />
         {children}
+        <Analytics />
       </body>
     </html>
   );
